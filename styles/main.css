@@ -315,7 +315,8 @@ template {
   text-decoration: none;
 }
 
-html, body {
+html,
+body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 16px;
@@ -348,7 +349,7 @@ a {
 
 /* Loader */
 .loader {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   position: fixed;
   width: 100%;
   height: 100%;
@@ -356,17 +357,31 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  -moz-animation: cssAnimation 0s ease-in 2s forwards;
-  -webkit-animation: cssAnimation 0s ease-in 2s forwards;
-  -o-animation: cssAnimation 0s ease-in 2s forwards;
-  animation: cssAnimation 0s ease-in 2s forwards;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-.loader img {
-  width: auto;
+  animation: remove-spinner 0ms 1s forwards;
 }
 
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #99E2D0;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes remove-spinner {
+  to {
+    transform: scale(0);
+  }
+}
 @keyframes cssAnimation {
   to {
     width: 0;
@@ -374,11 +389,9 @@ a {
     overflow: hidden;
   }
 }
-@-webkit-keyframes cssAnimation {
+@keyframes rotate-checkmark {
   to {
-    width: 0;
-    height: 0;
-    visibility: hidden;
+    transform: rotate(360deg);
   }
 }
 /* Header part */
@@ -459,7 +472,7 @@ a {
   color: #767474;
 }
 .bannerpart a {
-  background-color: #bb63db;
+  background: linear-gradient(-185deg, rgb(228, 113, 218) 36%, rgb(160, 90, 220) 100%);
   padding: 22px 40px;
   color: #fff;
   border-radius: 50px;
@@ -469,7 +482,7 @@ a {
   transition: 0.5s all;
 }
 .bannerpart a:hover {
-  background-color: #c77be3;
+  background: linear-gradient(-185deg, rgb(228, 113, 218) 36%, rgb(160, 90, 220) 100%);
 }
 
 /* How it work */
@@ -562,6 +575,7 @@ a {
   font-size: 14px;
   border-radius: 3px;
   color: #008766;
+  border-radius: 8px;
 }
 .restaurant-part .product-main .pro-box .box-content {
   padding: 14px 15px;
@@ -677,7 +691,7 @@ a {
     flex-direction: column;
   }
   .how-work-part ul li {
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 500;
   }
   /* Banner Part */
@@ -819,6 +833,9 @@ a {
   text-align: right;
   font-weight: 600;
 }
+.dish-items .main-product .inner-pro-main .prod-items:hover i {
+  animation: rotate-checkmark 0.5s forwards;
+}
 .dish-items .main-product .inner-pro-main .prod-items:hover .prod-details {
   width: calc(100% - 60px);
 }
@@ -892,6 +909,9 @@ a {
     width: 80%;
   }
   .dish-items .main-product .inner-pro-main .prod-items p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding-right: 40px;
   }
   .dish-items .main-product .sub-heading {
