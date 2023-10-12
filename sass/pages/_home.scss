@@ -76,9 +76,9 @@ a {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #99E2D0;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
 
 }
 
@@ -113,13 +113,7 @@ a {
   }
 }
 
-// @-webkit-keyframes cssAnimation {
-//   to {
-//     width: 0;
-//     height: 0;
-//     visibility: hidden;
-//   }
-//}
+
 
 /* Header part */
 
@@ -248,12 +242,12 @@ a {
   ul {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap;                                                                                                                                                                                                                       
 
     li {
       background-color: #f6f6f6;
-      margin: 20px 15px;
-      padding: 30px 30px 30px 35px;
+      margin: 20px 0px;
+      padding: 33px 10px 40px 35px;
       position: relative;
       border-radius: 25px;
       font-size: 18px;
@@ -494,7 +488,7 @@ a {
     flex-direction: column;
 
     li {
-      font-size: 12px;
+      font-size: 15px;
       font-weight: 500;
     }
   }
@@ -582,6 +576,19 @@ a {
   }
 }
 
+@keyframes menu-loader {
+  0% {
+    transform: translateY(35px);
+    opacity: 0;
+
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .dish-items {
   background-color: #f6f6f6;
   padding-bottom: 50px;
@@ -610,7 +617,19 @@ a {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-
+      .first-card{
+        animation: menu-loader 2s 0s forwards;
+      }
+      .second-card{
+        animation: menu-loader 2s 50ms forwards;
+      }
+      .third-card{
+        animation: menu-loader 2s 100ms forwards;
+      }
+      .fourth-card{
+        animation: menu-loader 2s 150ms forwards;
+      }
+      
       .prod-items {
         display: flex;
         flex-wrap: wrap;
@@ -621,6 +640,8 @@ a {
         box-shadow: 0 5px 14px 2px rgb(0 0 0 / 15%);
         cursor: pointer;
         margin: 10px 0;
+        
+
 
         .prod-details {
           width: 100%;
